@@ -16,7 +16,7 @@ if __name__ == '__main__':
     
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-    model_loaded = models.resnet18(pretrained=True)
+    model_loaded = models.resnet18(pretrained=False)
     #set_parameter_requires_grad(model_ft, feature_extract)
     num_ftrs = model_loaded.fc.in_features
     model_loaded.fc = nn.Linear(num_ftrs, 2)
