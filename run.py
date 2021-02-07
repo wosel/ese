@@ -26,8 +26,6 @@ if __name__ == '__main__':
 
     imagepaths = sys.argv[1:]
 
-    print(imagepaths)
-
     dset = TrainCouplingDataset(imagepaths, './', mode='test')
     
     
