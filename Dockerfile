@@ -11,6 +11,7 @@ RUN mkdir -p /src
 ADD run.py /src
 ADD run.sh /src
 ADD dataset.py /src
+RUN chmod a+x /src/run.sh
 
 WORKDIR /
 ENTRYPOINT ["./src/run.sh"]
