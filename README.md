@@ -8,7 +8,7 @@
  - Ensure you are within an environment with `Python 3.8`, `pytorch >= 1.7.0`
  - Download `model.pth` from https://drive.google.com/file/d/13yK1rbHGKcVom6xnOYc5kejbTV6B6qet/view?usp=sharing and place into root directory
  - `pip install -r requirements.txt`
- - python3 run.py /path/to/image1.jpg /path/to/image2.jpg
+ - `python3 run.py /path/to/image1.jpg /path/to/image2.jpg`
 
 ### Training 
 See supplied jupyter notebook `train.ipynb` for details. Run either in docker (see above, add `-it --entrypoint /bin/bash` to `docker run` params ) or in same environment as with cmdline. Ensure `jupyter` is available to run.
