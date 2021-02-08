@@ -1,4 +1,4 @@
-## Train coupling detection task
+## Train coupling localization task
 
 ### Running via docker:
 `docker run --runtime=nvidia -v path/to/folder/with/images:/data wosel/ese:0.0.3 /data/image1.jpg /data/image2.jpg`
