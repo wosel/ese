@@ -5,7 +5,7 @@
 
 ### Running via cmdline:
 
- - Ensure you are within an environment with `Python 3.8`, `pytorch >= 1.7.0`
+ - Ensure you are within an environment with `Python 3.8`, `pytorch >= 1.7.0`, `torchvision >= 0.8.2`
  - Download `model.pth` from https://drive.google.com/file/d/13yK1rbHGKcVom6xnOYc5kejbTV6B6qet/view?usp=sharing and place into root directory
  - `pip install -r requirements.txt`
  - `python3 run.py /path/to/image1.jpg /path/to/image2.jpg`
