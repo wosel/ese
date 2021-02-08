@@ -20,7 +20,11 @@ if __name__ == '__main__':
     #set_parameter_requires_grad(model_ft, feature_extract)
     num_ftrs = model_loaded.fc.in_features
     model_loaded.fc = nn.Linear(num_ftrs, 2)
-    model_loaded.load_state_dict(torch.load('model.pth'))
+    if device == 'cpu':
+        model_loaded.load_state_dict(torch.load('model.pth'))
+    else:
+        model_loaded.load_state_dict(torch.load('model.pth', map_location=torch.device('cpu')))
+    
     model_loaded.eval()
     model_loaded.to(device)
 
