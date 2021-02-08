@@ -11,7 +11,7 @@
  - python3 run.py /path/to/image1.jpg /path/to/image2.jpg
 
 ### Training 
-See supplied jupyter notebook `train.ipynb` for details
+See supplied jupyter notebook `train.ipynb` for details. Run either in docker (see above, add `-it --entrypoint /bin/bash` to `docker run` params ) or in same environment as with cmdline. Ensure `jupyter` is available to run.
 
 
 ________________
