@@ -40,11 +40,8 @@ class TrainCouplingDataset(Dataset):
     def __getitem__(self, idx):
         try:
 
-
-            #img_fname = os.path.join(self.root_dir, self.filename_list[idx])
             
             image = cv2.imread(self.filename_list[idx])
-            #print(img_fname)
 
             if self.mode != 'test':
                 img_fname = self.filename_list[idx]
@@ -56,6 +53,7 @@ class TrainCouplingDataset(Dataset):
                 seq = self.train_seq
             else:
                 seq = self.val_seq
+            
             if self.mode != 'test':
                 kps = KeypointsOnImage([
                     Keypoint(x=pt[0], y=pt[1]) for pt in pts], 
@@ -63,21 +61,16 @@ class TrainCouplingDataset(Dataset):
                 )
             else:
                 kps = []
-            #print(kps)
             image_aug, kps_aug = seq(image=image, keypoints=kps)
-            image = image_aug
-            #print(kps_aug)
+            
             if self.mode != 'test':
                 minx =  min([pt.x for pt in kps_aug])
                 maxx = max([pt.x for pt in kps_aug])
-
-
-                target = [minx/image.shape[1], maxx/image.shape[1]]
-                #print(target)
+                target = [minx/image_aug.shape[1], maxx/image_aug.shape[1]]
             
-                sample = {'image': torch.tensor(image).permute(2, 0, 1).type(torch.FloatTensor), 'bbox': torch.tensor(target).type(torch.FloatTensor)}
+                sample = {'image': torch.tensor(image_aug).permute(2, 0, 1).type(torch.FloatTensor), 'bbox': torch.tensor(target).type(torch.FloatTensor)}
             else:
-                sample = {'image': torch.tensor(image).permute(2, 0, 1).type(torch.FloatTensor)}
+                sample = {'image': torch.tensor(image_aug).permute(2, 0, 1).type(torch.FloatTensor)}
             return sample
         except Exception as e:
             print(e)
